@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Store Front</title>
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div id="product-container"></div>
+	<ul class="wishlist"></ul>
+
+<!-- Templates: -->
+	<script id="store-template" type="text/x-handlebars-template">
+		<ul>
+			{{#each productsData.productsList}}
+				<li class="product">
+				<h1 class="productTitle">{{title}}</h1>
+				<strong>{{cost}}</strong>
+				<img src="{{image}}" alt="image of game"></img>
+					<h3>Details:</h3>
+					{{#each details}}
+						<p>	
+							<strong>{{@key}} :</strong> {{this}}
+						</p>
+					{{/each}}
+				{{#if sale}}
+					<em><strong> Check out this Great Sale Price:{{sale}}</strong></em>
+				{{else}}
+					<em>No Sale Price Set</em>
+				{{/if}}
+				<button class="addWish">Add to Wishlist</button>
+				</li>
+
+			{{/each}}
+		</ul>
+	</script>
+
+	
+<!-- Add Handlebars -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js"></script>
+
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="products-data.js"></script> 
+  <script src="main.js"></script>
+
+</body>
+</html>
